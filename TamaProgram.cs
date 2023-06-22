@@ -27,14 +27,14 @@ static class TamaProgram
 
     // Static variables can be used, but are not shared between the AsynchronousMain and the other tasks (Imagine a
     // [ThreadStatic] attribute here). For sharing, use general purpose registers.
+    // Static varaiables are initialized when the Tama program is (re)loaded.
     static int _counter = 0;
 
     // Choose how to run the program. Additional entry points for other tasks can be specified in this same program.
     [TamaTask(Task.IsochronousMain)]
     static void Main()
     {
-        // Template state machine showing the picture of how a task is structured and which registers are commonly used
-        // for status/control operations.
+        // Template state machine showing the picture of how a task is structured
         if(_counter < 1){
             Register.Application.TamaControl.IsochronousMainState = State.Working;
         }
@@ -45,6 +45,9 @@ static class TamaProgram
                     }
 
 			case State.Working: {
+                    // Increments the Application.Variables.Integers[0] by one if run for the first time after (re)loading the Tama.
+                    // Restarting the isochronous Task will not increase the counter further, as the entry point is after the initialization
+                    // of the _counter variable
                     Register.Application.Variables.Integers[0] += 1;
                     Register.Application.TamaControl.IsochronousMainState = State.Idle;
                     _counter += 1;
