@@ -1,6 +1,7 @@
 ﻿// The number of these two  directives must match the device's Tama Virtual Machine ID and Register Layout ID,
 // respectively.
 using System.Reflection;
+using System.Security.Policy;
 using Triamec.Tama.Rlid19;
 using Triamec.Tama.Vmid5;
 
@@ -46,8 +47,11 @@ static class TamaProgram
 
 			case State.Working: {
                     // Increments the Application.Variables.Integers[0] by one if run for the first time after (re)loading the Tama.
-                    // Restarting the isochronous Task will not increase the counter further, as the entry point is after the initialization
-                    // of the _counter variable
+                    // Static variables defined with "static ..." are persistent(e.g. static int _counter = 0).
+                    // This means that the values will be stored when the task calculation has completed. They can be initialized before
+                    // entering the task for the first time.
+                    // The static variable initialization takes place when downloading the code. A start/ stop of the task does not
+                    // initialize the variables.
                     Register.Application.Variables.Integers[0] += 1;
                     Register.Application.TamaControl.IsochronousMainState = State.Idle;
                     _counter += 1;
