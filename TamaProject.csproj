@@ -41,6 +41,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TamaProgram.cs" />
   </ItemGroup>
   <ItemGroup>
