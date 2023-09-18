@@ -14,10 +14,6 @@ static class TamaProgram {
         public const int Idle = 0;
         public const int Working = 1;
     }
-    static class Command {
-        public const int None = 0;
-        public const int Go = 1;
-    }
 
     // Static variables can be used, but are not shared between the AsynchronousMain and the other tasks (Imagine a
     // [ThreadStatic] attribute here). For sharing, use general purpose registers.
