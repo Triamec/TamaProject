@@ -12,12 +12,12 @@ There are multiple options IDE and toolchain options to author and compile Tama 
 
 Powerful, professional tool for C#/.NET development. Could require a license, depending on your use case and the size of your organization.
 Make sure to install the .NET-development workload.
-Once installed, simply click on an ´.sln´ or ´.csproj´ file to open a solution or a project.
+Once installed, simply click on an `.sln` or `.csproj` file to open a solution or a project.
 
 ### Visual Studio Code
 
 Lightweight editor with loads of extensions to customize for your use case. We recommend installing a workload for C# development to enhance your coding experience.
-To generate a Tama program, simply type ´dotnet build <your.sln or your.csproj>´ into the command line. 
+To generate a Tama program, simply type `dotnet build <your.sln or your.csproj>` into the command line. 
 
 ### Rider
 
