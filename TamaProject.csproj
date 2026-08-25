@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>Triamec.Tam.Samples</RootNamespace>
     <AssemblyName>TamaProject</AssemblyName>
     <LangVersion>latestMajor</LangVersion>
